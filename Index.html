@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Simple Network Ping Simulator</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <main class="app">
+    <h1>Simple Network Ping Simulator</h1>
+
+    <form id="pingForm" class="controls">
+      <div class="row">
+        <label>
+          Source IP
+          <input id="srcIp" type="text" placeholder="e.g. 192.168.1.10" required />
+        </label>
+        <label>
+          Destination IP
+          <input id="dstIp" type="text" placeholder="e.g. 8.8.8.8" required />
+        </label>
+        <label>
+          Count
+          <input id="count" type="number" min="1" max="20" value="4" />
+        </label>
+        <label>
+          Packet size (bytes)
+          <input id="size" type="number" min="8" max="1500" value="56" />
+        </label>
+      </div>
+      <div class="row">
+        <label class="checkbox">
+          <input id="doTrace" type="checkbox" />
+          Show traceroute before ping
+        </label>
+        <label class="checkbox">
+          <input id="stableSeed" type="checkbox" checked />
+          Stable results (same IPs → same latencies)
+        </label>
+        <button id="runBtn" type="submit">Run</button>
+        <button id="clearBtn" type="button">Clear</button>
+      </div>
+    </form>
+
+    <pre id="console" class="console" aria-live="polite"></pre>
+
+    <footer>
+      <small>
+        This is a simulation for practice/demos. No real ICMP packets are sent.
+      </small>
+    </footer>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
